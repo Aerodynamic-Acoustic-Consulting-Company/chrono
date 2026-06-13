@@ -222,6 +222,64 @@
 				"windowsci-base",
 				"genericci-base"
 			]
+		},
+		{
+			"name": "vcpkg",
+			"generator": "Ninja",
+			"binaryDir": "${sourceDir}/build",
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+				"CH_ENABLE_MODULE_PARSERS": "ON",
+				"CH_ENABLE_MODULE_PERIDYNAMICS": "ON",
+				"CH_ENABLE_MODULE_IRRLICHT": "OFF",
+				"CH_ENABLE_MODULE_VSG": "OFF",
+				"CH_ENABLE_MODULE_VEHICLE": "OFF",
+				"CH_ENABLE_MODULE_POSTPROCESS": "ON",
+				"CH_ENABLE_MODULE_MULTICORE": "OFF",
+				"CH_ENABLE_MODULE_FSI": "OFF",
+				"CH_ENABLE_MODULE_FSI_SPH": "OFF",
+				"CH_ENABLE_MODULE_FSI_TDPF": "OFF",
+				"CH_ENABLE_MODULE_DEM": "OFF",
+				"CH_ENABLE_MODULE_PARDISO_MKL": "OFF",
+				"CH_ENABLE_MODULE_CASCADE": "OFF",
+				"CH_ENABLE_MODULE_SENSOR": "OFF",
+				"CH_ENABLE_MODULE_MODAL": "OFF",
+				"CH_ENABLE_MODULE_MATLAB": "OFF",
+				"CH_ENABLE_MODULE_CSHARP": "OFF",
+				"CH_ENABLE_MODULE_PYTHON": "OFF",
+				"CH_ENABLE_MODULE_SYNCHRONO": "OFF",
+				"CH_ENABLE_MODULE_FMI": "OFF",
+				"CH_ENABLE_MODULE_ROS": "OFF",
+				"BUILD_BENCHMARKING": "OFF",
+				"BUILD_TESTING": "OFF"
+			}
+		},
+		{
+			"name": "vcpkg-debug",
+			"inherits": "vcpkg",
+			"binaryDir": "${sourceDir}/build_debug",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug",
+				"Irrlicht_ROOT": "${sourceDir}/build_debug/vcpkg_installed/x64-linux",
+				"Irrlicht_INCLUDE_DIR": "${sourceDir}/build_debug/vcpkg_installed/x64-linux/include/irrlicht",
+				"Irrlicht_LIBRARY": "${sourceDir}/build_debug/vcpkg_installed/x64-linux/lib/libIrrlicht.a"
+			}
+		},
+		{
+			"name": "vcpkg-release",
+			"inherits": "vcpkg",
+			"binaryDir": "${sourceDir}/build_release",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		},
+		{
+			"name": "vcpkg-release_with_deb",
+			"inherits": "vcpkg",
+			"binaryDir": "${sourceDir}/build_release_with_deb",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "RelWithDebInfo"
+			}
 		}
 	]
 }
