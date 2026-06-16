@@ -84,8 +84,17 @@ endif()
 target_compile_definitions(Chrono_irrlicht PRIVATE $<$<COMPILE_LANGUAGE:CXX>:CH_API_COMPILE_IRRLICHT>)
 target_compile_definitions(Chrono_irrlicht PRIVATE $<$<COMPILE_LANGUAGE:CXX>:IGNORE_DEPRECATED_WARNING>)
 
-target_link_libraries(Chrono_irrlicht PRIVATE Chrono_core)
+find_package(OpenGL REQUIRED)
+
+target_link_libraries(Chrono_irrlicht PRIVATE Chrono_core OpenGL::GL)
 target_link_libraries(Chrono_irrlicht PUBLIC Irrlicht::Irrlicht)
+
+if(LINUX)
+  find_package(X11)
+  find_package(PkgConfig REQUIRED)
+  pkg_check_modules(Xxf86vm REQUIRED xxf86vm)
+  target_link_libraries(Chrono_irrlicht PRIVATE X11::X11 ${Xxf86vm_LIBRARIES})
+endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   target_link_libraries(Chrono_irrlicht PRIVATE ${MAC_LIBS})
