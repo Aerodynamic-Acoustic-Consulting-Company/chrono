@@ -270,7 +270,10 @@
 			"inherits": "vcpkg",
 			"binaryDir": "${sourceDir}/build_release",
 			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Release"
+				"CMAKE_BUILD_TYPE": "Release",
+				"Irrlicht_ROOT": "${sourceDir}/build_release/vcpkg_installed/x64-linux",
+				"Irrlicht_INCLUDE_DIR": "${sourceDir}/build_release/vcpkg_installed/x64-linux/include/irrlicht",
+				"Irrlicht_LIBRARY": "${sourceDir}/build_release/vcpkg_installed/x64-linux/lib/libIrrlicht.a"
 			}
 		},
 		{
