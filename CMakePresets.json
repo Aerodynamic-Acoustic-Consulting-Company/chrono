@@ -240,7 +240,7 @@
 				"CH_ENABLE_MODULE_FSI_SPH": "OFF",
 				"CH_ENABLE_MODULE_FSI_TDPF": "OFF",
 				"CH_ENABLE_MODULE_DEM": "OFF",
-				"CH_ENABLE_MODULE_PARDISO_MKL": "OFF",
+				"CH_ENABLE_MODULE_PARDISO_MKL": "ON",
 				"CH_ENABLE_MODULE_CASCADE": "OFF",
 				"CH_ENABLE_MODULE_SENSOR": "OFF",
 				"CH_ENABLE_MODULE_MODAL": "OFF",
@@ -251,7 +251,8 @@
 				"CH_ENABLE_MODULE_FMI": "OFF",
 				"CH_ENABLE_MODULE_ROS": "OFF",
 				"BUILD_BENCHMARKING": "OFF",
-				"BUILD_TESTING": "OFF"
+				"BUILD_TESTING": "OFF",
+				"MKL_DIR": "/opt/intel/oneapi/mkl/latest/lib/cmake/mkl"
 			}
 		},
 		{
